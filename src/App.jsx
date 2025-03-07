@@ -1,8 +1,12 @@
 import React from 'react'
+import Form from './Components/Form'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div className='w-screen h-screen'>
+     
+      <Form/>
+      </div>
   )
 }
 
