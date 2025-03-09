@@ -1,21 +1,25 @@
-import React from 'react'
-import Form from './Components/Form'
-import NavBar from './Components/NavBar'
-import { BrowserRouter, Router, Routes, Route } from 'react-router-dom'
-import LandingPage from './Components/LandingPage'
-import ClubCard from './Components/ClubCard'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./Components/NavBar"; 
+import Footer from "./Components/Footer"; 
+import LandingPage from "./Components/LandingPage";
+import CardContainer from "./Components/CardContainer";
+import Form from "./Components/Form";
 
 const App = () => {
   return (
-    <div className='w-screen h-screen'>
+    <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/clubcard" element={<ClubCard />} /> */}
-        <Route path="/form" element={<Form />} />
-      </Routes>
+      <div className="flex-grow">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/clubs" element={<CardContainer />} />
+          <Route path="/form" element={<Form />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

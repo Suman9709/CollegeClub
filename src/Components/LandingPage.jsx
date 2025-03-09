@@ -1,30 +1,35 @@
-import React, { useState } from 'react'
-import ClubCard from './ClubCard'
-import Footer from './Footer'
-import chitraclub from '../Image/ChitraClub.jpg'
+import React, { useEffect, useState } from 'react'
+import img1 from '../Image/img13.webp'
+import img2 from '../Image/img12.jpg'
 
-
+const images = [img1, img2]
 const LandingPage = () => {
-  return (
-    <div className='flex flex-col justify-center items-center w-screen h-auto'>
 
-      <h1>Welcome to the shivalik club page</h1>
-      <div className='grid grid-cols-4  gap-5'>
-        <ClubCard clubname='Chitra Club' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-        <ClubCard clubname='Club Name' imageSrc={chitraclub} clubdesc='This Club aims to hone the photograph and cinematography skills of the students, and to cover all events Digital Marketing of the Shivalik College. This club organized activities like expert session, field trips and regular competition, etc to enhance the skills.' />
-       
-      </div>
-      <div>
-        <Footer />
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 3000);
+    return () => clearInterval(interval)
+
+  }, [])
+  return (
+    <div className="flex flex-col justify-center items-center w-full h-screen mt-16 overflow-hidden">
+      {/* <h1 className="text-2xl font-bold">Welcome to the Shivalik Club Page</h1> */}
+      <div className="w-full h-full flex justify-center items-center overflow-hidden relative">
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt={`slide-${index}`}
+            className={`absolute w-full h-full object-cover transition-opacity duration-500 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
+          />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
