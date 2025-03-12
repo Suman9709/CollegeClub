@@ -20,13 +20,13 @@ const Footer = () => {
                 </p>
 
                 <div className="flex space-x-4 items-center justify-center mt-4">
-                    <Link to="#" className="p-1 border border-white rounded-lg hover:scale-110 transition-transform duration-300">
+                    <Link to="/Linked.com" className="p-1 border border-white rounded-lg hover:scale-110 transition-transform duration-300">
                         <img src={linkedin} alt="LinkedIn" className="w-10 h-10 filter hover:brightness-90" />
                     </Link>
-                    <Link to="#" className="p-1 border border-white rounded-lg hover:scale-110 transition-transform duration-300">
+                    <Link to="/facebook.com" className="p-1 border border-white rounded-lg hover:scale-110 transition-transform duration-300">
                         <img src={fb} alt="Facebook" className="w-10 h-10 filter hover:brightness-90" />
                     </Link>
-                    <Link to="#" className="p-1 border border-white rounded-lg hover:scale-110 transition-transform duration-300">
+                    <Link to="/instagram.com" className="p-1 border border-white rounded-lg hover:scale-110 transition-transform duration-300">
                         <img src={insta} alt="Instagram" className="w-10 h-10 filter hover:brightness-90" />
                     </Link>
                 </div>
