@@ -15,7 +15,7 @@ const handleSubmit = (e)=>{
 }
 
     return (
-        <div className="w-full min-h-screen flex items-center justify-center bg-cyan-300 p-6">
+        <div className="w-full min-h-screen flex items-center justify-center bg-cyan-300 p-6 mt-16">
             <form className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg" onSubmit={handleSubmit}>
                 <h2 className="text-3xl font-bold text-center mb-6">Registration Form</h2>
 
