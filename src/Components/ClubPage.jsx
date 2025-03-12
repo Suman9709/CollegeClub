@@ -40,7 +40,7 @@ const ClubPage = () => {
                 ))}
             </div>
 
-            <div className="mt-8 bg-white/80  rounded-2xl p-8 max-w-1/2 text-center flex flex-col items-center ">
+            <div className="mt-8 bg-white/80  rounded-2xl p-8 max-w-full sm:w-full md:w-full lg:w-full text-center flex flex-col items-center ">
                 <h1 className="text-4xl font-extrabold text-red-800">{club.clubname}</h1>
 
                 <img
