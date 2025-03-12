@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../Image/shivalik-logo.png';
 import nacc from '../Image/nacc-grade.png';
-import linkedin from '../Image/linkedin.svg';
+import linkedin from '../Image/linkedIn.svg';
 import fb from '../Image/fb.svg';
 import insta from '../Image/insta.svg';
 import { Link } from 'react-router-dom';
