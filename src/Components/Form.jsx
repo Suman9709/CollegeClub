@@ -9,13 +9,36 @@ const Form = () => {
   const [year, setYear] = useState("");
   const [clubname, setClubName] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log({ name, contact, email, course, year, clubname });
+
+    const formData = {
+      name, contact, email, course, year, clubname
+    };
+    const API_URL = "https://script.google.com/macros/s/AKfycbzUfsZKCIqUPXl5D2NDHRegp16hCN2IZ9A9ltPqMAy7wovfhGI4ZUEw5onFrSFtKJOBbQ/exec"
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+      if (response.ok) {
+        alert("Data saved successfully!");
+      } else {
+        alert("Failed to submit data.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while submitting data.");
+    }
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center bg-cyan-300 p-4 sm:p-6 md:p-8">
+    <div className="w-full min-h-screen flex items-center justify-center bg-cyan-300 p-4 sm:p-6 md:p-8 mt-16">
       <form
         className="bg-white p-6 md:p-8 rounded-lg shadow-lg w-full max-w-lg"
         onSubmit={handleSubmit}
@@ -137,7 +160,7 @@ const Form = () => {
 
         {/* Submit Button */}
         <div className="mt-6 flex justify-center">
-          <Button label="Submit" />
+          <Button label="Submit" type="submit" />
         </div>
       </form>
     </div>
